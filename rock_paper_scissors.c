@@ -9,7 +9,7 @@ char Player1char, Player2char;
 void instructions();
 char player1char();
 int game();
-
+int player1total, player2total = 0;
 
 int main(){
     instructions();
@@ -26,6 +26,8 @@ int main(){
             printf("%d\n", rand_num);
             player1char();
             game();
+            player1total += player1point;
+            player2total += player2point;
         }
 
         // while ((Player2char != 'A' ||Player2char != 'B' || Player2char != 'C') && (attempts < 3)){
@@ -35,10 +37,25 @@ int main(){
         // }
 
         // if (attempts >= 3){
+        //     printf("Start Over\n");
         //     return 0;
         // }
-
     }
+
+    printf("Player 1 Points: %d\n", player1total);
+    printf("Player 2 Points: %d\n", player2total);
+    if (player1total > player2total){
+        printf("YOU LOSE\n");
+    }
+
+    else if (player1total == player2total) {
+        printf("STALEMATE\n");
+    }
+
+    else{
+        printf("YOU WIN\n");
+    }
+
     return 0;
 }
 
@@ -52,7 +69,6 @@ void instructions(){
     printf("\t\tC. Scissors\n\n"); 
     printf("You are Player 2\n\n");
 }
-
 char player1char(){
     if (rand_num >= 1 && rand_num <= 20){
         Player1char = 'A';
@@ -72,8 +88,6 @@ char player1char(){
     printf("DONE 1\n");
     return Player1char;
 }
-
-
 int game(){
     if (Player1char == 'A'){
         if (Player2char == 'A'){
