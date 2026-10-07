@@ -1,10 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <stdlib.h>
+
+
 
 int rand_num;
 int playerNum;
-int player1point, player2point, i, attempts = 0;
+int player1point, player2point,i, attempts = 0;
 char Player1char, Player2char;
 void instructions();
 char player1char();
@@ -30,16 +33,16 @@ int main(){
             player2total += player2point;
         }
 
-        // while ((Player2char != 'A' ||Player2char != 'B' || Player2char != 'C') && (attempts < 3)){
-        //     printf("Enter your Choice:");
-        //     scanf("%c", &Player2char);
-        //     attempts ++;
-        // }
+        while ((Player2char != 'A' ||Player2char != 'B' || Player2char != 'C') && (attempts < 3)){
+            printf("Enter your Choice:");
+            scanf("%c", &Player2char);
+            attempts ++;
+        }
 
-        // if (attempts >= 3){
-        //     printf("Start Over\n");
-        //     return 0;
-        // }
+        if (attempts >= 3){
+            printf("Start Over\n");
+            return 0;
+        }
     }
 
     printf("Player 1 Points: %d\n", player1total);
@@ -70,22 +73,24 @@ void instructions(){
     printf("You are Player 2\n\n");
 }
 char player1char(){
+    //majority of the print functions are commented since they helped run the program
+    //can be used when one wants to check how performance occurred
     if (rand_num >= 1 && rand_num <= 20){
         Player1char = 'A';
-        printf("%c\n", Player1char);
+        //printf("%c\n", Player1char); 
     }
 
     else if (rand_num  >= 21 && rand_num <= 40){
         Player1char = 'B';
-        printf("%c\n", Player1char);
+        //printf("%c\n", Player1char);
     }
 
     else{
         Player1char = 'C';
-        printf("%c\n", Player1char);
+        //printf("%c\n", Player1char);
     }
 
-    printf("DONE 1\n");
+    //printf("DONE 1\n");
     return Player1char;
 }
 int game(){
@@ -156,7 +161,7 @@ int game(){
         }
     }
 
-    printf ("DONE\n\n");
+    //printf ("DONE\n\n");
     return player1point;
     return player2point;
 
